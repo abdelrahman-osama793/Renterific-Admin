@@ -38,7 +38,6 @@ import { CategoriesTableComponent } from './categories-table/categories-table.co
     ApprovedProductsTableComponent,
     PendingProductsTableComponent,
     CategoriesTableComponent,
-
   ],
   providers: [],
   bootstrap: [AppComponent]
