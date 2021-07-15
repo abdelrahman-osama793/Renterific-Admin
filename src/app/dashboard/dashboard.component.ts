@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'app/service/auth.service';
+import { ProductService } from 'app/service/product.service';
+import { RentingService } from 'app/service/renting.service';
 import * as Chartist from 'chartist';
 
 @Component({
@@ -7,8 +10,11 @@ import * as Chartist from 'chartist';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-
-  constructor() { }
+usercount:any;
+productcount:any;
+pendingcount:any;
+approvedcount:any;
+  constructor(private myuser:AuthService,private myproduct:ProductService,private rentation:RentingService) { }
   startAnimationForLineChart(chart){
       let seq: any, delays: any, durations: any;
       seq = 0;
@@ -66,6 +72,10 @@ export class DashboardComponent implements OnInit {
       seq2 = 0;
   };
   ngOnInit() {
+    this.countUser()
+    this.countProduct()
+    this.pendingProd()
+    this.AcceptedProd()
       /* ----------==========     Daily Sales Chart initialization For Documentation    ==========---------- */
 
       const dataDailySalesChart: any = {
@@ -142,9 +152,42 @@ export class DashboardComponent implements OnInit {
         }]
       ];
       var websiteViewsChart = new Chartist.Bar('#websiteViewsChart', datawebsiteViewsChart, optionswebsiteViewsChart, responsiveOptions);
-
-      //start animation for the Emails Subscription Chart
       this.startAnimationForBarChart(websiteViewsChart);
   }
+////////////////////////////////
+async countUser(){
+  await this.myuser.getAllUser().subscribe((res:any)=>{
+  this.usercount = Object.keys(res).length;
+  },err=>{console.log(err)})
+}
+async countProduct(){
+  await this.myproduct.AllProduct().subscribe((res:any)=>{
+  this.productcount = Object.keys(res).length;
+  },err=>{console.log(err)})
+}
+async pendingProd(){
+  let produc = [];
+  await this.myproduct.AllProduct().subscribe((res:any)=>{
+    for (const pro of res) {
+      if(pro.status_adminstaration=="pending"){
+        produc.push(pro)
+      }
+    }
+    //console.log(produc.length)
+  this.productcount = produc.length;
+  },err=>{console.log(err)})
+}
 
+async AcceptedProd(){
+  let produc = [];
+  await this.myproduct.AllProduct().subscribe((res:any)=>{
+    for (const pro of res) {
+      if(pro.status_adminstaration=="accepted"){
+        console.log('ok');
+        produc.push(pro)
+      }
+    }
+  this.approvedcount = produc.length;
+  },err=>{console.log(err)})
+}
 }

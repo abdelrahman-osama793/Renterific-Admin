@@ -13,52 +13,21 @@
                 <thead class="text-primary">
                   <th>ID</th>
                   <th>Name</th>
-                  <th>Country</th>
-                  <th>City</th>
-                  <th>Salary</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                  <th>Address_street</th>
+                  <th>Address_city</th>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>Dakota Rice</td>
-                    <td>Niger</td>
-                    <td>Oud-Turnhout</td>
-                    <td class="text-primary">$36,738</td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Minerva Hooper</td>
-                    <td>Curaçao</td>
-                    <td>Sinaai-Waas</td>
-                    <td class="text-primary">$23,789</td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>Sage Rodriguez</td>
-                    <td>Netherlands</td>
-                    <td>Baileux</td>
-                    <td class="text-primary">$56,142</td>
-                  </tr>
-                  <tr>
-                    <td>4</td>
-                    <td>Philip Chaney</td>
-                    <td>Korea, South</td>
-                    <td>Overland Park</td>
-                    <td class="text-primary">$38,735</td>
-                  </tr>
-                  <tr>
-                    <td>5</td>
-                    <td>Doris Greene</td>
-                    <td>Malawi</td>
-                    <td>Feldkirchen in Kärnten</td>
-                    <td class="text-primary">$63,542</td>
-                  </tr>
-                  <tr>
-                    <td>6</td>
-                    <td>Mason Porter</td>
-                    <td>Chile</td>
-                    <td>Gloucester</td>
-                    <td class="text-primary">$78,615</td>
+                  <tr *ngFor="let us of user;index as i">
+                    <td>{{ i+1 }}</td>
+                    <td>{{ us.Name }}</td>
+                    <td>{{ us.Email }}</td>
+                    <td>{{ us.Phone }}</td>
+                    <td>{{ us.Address_street }}</td>
+                    <td>{{ us.Address_city }}</td>
+                    <input type="hidden" #id value="{{ us._id }}" name="" id="">
+                    <td><button class="btn btn-danger" (click)="deleteuser(id.value)">Delete</button></td>
                   </tr>
                 </tbody>
               </table>
