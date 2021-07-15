@@ -13,9 +13,9 @@ export class CategoryService {
    getAllCategory():Observable<any>{
     return this._HttpClient.get('http://localhost:3333/api/category/all-category')
   }
-  addNewCategory(formData:any):Observable<any>
+  addNewCategory(data:any):Observable<any>
   {
-   return this._HttpClient.post('http://localhost:3333/api/category/add-category',formData);
+   return this._HttpClient.post('http://localhost:3333/api/category/add-category',data);
   }
   searchByCategoryTitle(title:string):Observable<any>
   {

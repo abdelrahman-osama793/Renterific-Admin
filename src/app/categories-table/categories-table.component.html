@@ -5,6 +5,7 @@
         <div class="card">
           <div class="card-header card-header-danger">
             <h4 class="card-title">Categories Table</h4>
+            
             <p class="card-category">This table contains all Categories</p>
           </div>
           <div class="card-body">
@@ -12,60 +13,62 @@
               <table class="table">
                 <thead class="text-primary">
                   <th>ID</th>
-                  <th>Name</th>
-                  <th>Country</th>
-                  <th>City</th>
-                  <th>Salary</th>
+                  <th>Title</th>
+                  <th>Description</th>
+                  
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>Dakota Rice</td>
-                    <td>Niger</td>
-                    <td>Oud-Turnhout</td>
-                    <td class="text-primary">$36,738</td>
+                  <tr *ngFor='let cat of category;index as i'>
+                    <td>{{i+1}}</td>
+                    <td>{{cat.title}}</td>
+                    <td>{{cat.decs}}</td>
                   </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Minerva Hooper</td>
-                    <td>Curaçao</td>
-                    <td>Sinaai-Waas</td>
-                    <td class="text-primary">$23,789</td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>Sage Rodriguez</td>
-                    <td>Netherlands</td>
-                    <td>Baileux</td>
-                    <td class="text-primary">$56,142</td>
-                  </tr>
-                  <tr>
-                    <td>4</td>
-                    <td>Philip Chaney</td>
-                    <td>Korea, South</td>
-                    <td>Overland Park</td>
-                    <td class="text-primary">$38,735</td>
-                  </tr>
-                  <tr>
-                    <td>5</td>
-                    <td>Doris Greene</td>
-                    <td>Malawi</td>
-                    <td>Feldkirchen in Kärnten</td>
-                    <td class="text-primary">$63,542</td>
-                  </tr>
-                  <tr>
-                    <td>6</td>
-                    <td>Mason Porter</td>
-                    <td>Chile</td>
-                    <td>Gloucester</td>
-                    <td class="text-primary">$78,615</td>
-                  </tr>
+                 <tr>
+                   
+                 </tr>
                 </tbody>
               </table>
             </div>
           </div>
         </div>
       </div>
+    </div>
+    
+  </div>
+</div>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary bbb" data-toggle="modal" data-target="#exampleModal">
+  Add New Category
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel" class="btn btn-dark btn-block text-uppercase w-100">Form Add Category</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="col-xl-12 col-lg-12 col-md-12">
+          <div class="form-group mb-3">
+            <label for="name"  >Category Title
+            </label>
+            <input id="name" #title name="name" type="text" class="form-control validate" required />
+          </div>
+          <div class="form-group mb-3">
+            <label for="description">Category Description</label>
+            <textarea #desc class="form-control validate" rows="3" required></textarea>
+          </div>        
+        </div>
+        <div class="col-xl-12 col-lg-12 col-md-12">
+          <button type="button" (click)="addCat(title.value,desc.value)" class="btn btn-primary btn-block text-uppercase w-100">Add Product Now</button>
+        </div>
+
+      </div>
+     
     </div>
   </div>
 </div>
