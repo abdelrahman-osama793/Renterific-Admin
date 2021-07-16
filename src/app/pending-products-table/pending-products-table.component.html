@@ -28,10 +28,19 @@
                     <td>{{ product.status }}</td>
                     <td>$ {{ product.price_by_day }}</td>
                     <td>
-                      <a class="btn btn-info p-2">
-                        <i class="bi bi-info"></i>
+                      <button
+                        class="btn btn-success p-2 mr-1"
+                        (click)="onApproveProduct(product._id)"
+                      >
+                        <i class="bi bi-check2"></i>
+                      </button>
+                      <a class="btn btn-info p-2 mr-1">
+                        <i class="bi bi-info-circle"></i>
                       </a>
-                      <button class="btn btn-danger p-2" (click)="onDeleteProduct(product._id)">
+                      <button
+                        class="btn btn-danger p-2"
+                        (click)="onDeleteProduct(product._id)"
+                      >
                         <i class="bi bi-trash"></i>
                       </button>
                     </td>
