@@ -31,4 +31,20 @@ export class PendingProductsTableComponent implements OnInit {
       console.log(response);
     });
   }
+
+  async onApproveProduct(id: any) {
+    let data = {
+      status_adminstaration: "accepted",
+    };
+
+    await this.productService.UpdateProduct(id, data).subscribe(
+      (response: any) => {
+        console.log(response);
+        this.getPendingProducts();
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
 }
