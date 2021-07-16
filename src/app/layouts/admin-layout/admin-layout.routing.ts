@@ -8,7 +8,9 @@ import { PendingProductsTableComponent } from "app/pending-products-table/pendin
 import { CategoriesTableComponent } from "app/categories-table/categories-table.component";
 
 export const AdminLayoutRoutes: Routes = [
-  { path: "dashboard", component: DashboardComponent },
+  { path: '', redirectTo: 'home' },
+{ path: 'home', component: DashboardComponent },
+  // { path: "dashboard", component: DashboardComponent },
   { path: "user-profile", component: UserProfileComponent },
   { path: "users", component: UsersTableComponent },
   { path: "approved-products", component: ApprovedProductsTableComponent },

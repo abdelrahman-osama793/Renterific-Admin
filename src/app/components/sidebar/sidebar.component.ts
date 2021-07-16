@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-
+import {AuthService} from '../../auth.service'
 // declare const $: any;
 declare interface RouteInfo {
   path: string;
@@ -8,38 +8,33 @@ declare interface RouteInfo {
   class: string;
 }
 export const ROUTES: RouteInfo[] = [
-  { path: "/dashboard", title: "Dashboard", icon: "dashboard", class: "" },
-  { path: "/user-profile", title: "Admin Profile", icon: "person", class: "" },
+  { path: "home", title: "Dashboard", icon: "dashboard", class: "" },
+  { path: "user-profile", title: "Admin Profile", icon: "person", class: "" },
   {
-    path: "/users",
+    path: "users",
     title: "Users Table",
     icon: "group",
     class: "",
   },
   {
-    path: "/approved-products",
+    path: "approved-products",
     title: "Approved Products",
     icon: "check_box",
     class: "",
   },
   {
-    path: "/pending-products",
+    path: "pending-products",
     title: "Pending Products",
     icon: "content_paste",
     class: "",
   },
   {
-    path: "/categories",
+    path: "categories",
     title: "Categories",
     icon: "category_outlined",
     class: "",
   },
-  {
-    path: "/logout",
-    title: "Logout",
-    icon: "logout",
-    class: "",
-  },
+ 
 ];
 
 @Component({
@@ -50,7 +45,7 @@ export const ROUTES: RouteInfo[] = [
 export class SidebarComponent implements OnInit {
   menuItems: any[];
 
-  constructor() {}
+  constructor(private _AuthService:AuthService) {}
 
   ngOnInit() {
     this.menuItems = ROUTES.filter((menuItem) => menuItem);
@@ -60,5 +55,8 @@ export class SidebarComponent implements OnInit {
       return false;
     }
     return true;
+  }
+  logOut(){
+    this._AuthService.logout();
   }
 }

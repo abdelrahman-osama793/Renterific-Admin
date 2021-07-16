@@ -17,6 +17,7 @@ import { UsersTableComponent } from './users-table/users-table.component';
 import { ApprovedProductsTableComponent } from './approved-products-table/approved-products-table.component';
 import { PendingProductsTableComponent } from './pending-products-table/pending-products-table.component';
 import { CategoriesTableComponent } from './categories-table/categories-table.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   imports: [
@@ -38,6 +39,7 @@ import { CategoriesTableComponent } from './categories-table/categories-table.co
     ApprovedProductsTableComponent,
     PendingProductsTableComponent,
     CategoriesTableComponent,
+    LoginComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]
