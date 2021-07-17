@@ -40,7 +40,6 @@ export class PendingProductsTableComponent implements OnInit {
     await this.productService.UpdateProduct(id, data).subscribe(
       (response: any) => {
         console.log(response);
-        // this.getPendingProducts();
       },
       (error) => {
         console.log(error);

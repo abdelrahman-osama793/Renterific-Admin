@@ -1,0 +1,96 @@
+.modal.modal-angular .modal-header {
+  border-bottom: none;
+  position: relative;
+}
+.modal.modal-angular .modal-footer {
+  border-top: none;
+}
+.modal.modal-angular .modal-body .separator {
+  border-bottom: 1px solid rgba(220, 220, 220, 0.2);
+  width: 100%;
+  display: block;
+  margin: 11px 0;
+}
+.modal.modal-angular .modal-body .image-container {
+  width: 35px;
+  overflow: hidden;
+  margin: 0px auto;
+  margin-bottom: 17px;
+}
+.modal.modal-angular .modal-body .image-container img {
+  width: 100%;
+  vertical-align: top;
+}
+.modal.modal-angular .modal-body .image-container.image-angular-cli {
+  width: 44px;
+  position: relative;
+  top: 4px;
+  margin-top: -9px;
+}
+.modal.modal-angular .modal-body h4 {
+  padding-left: 0px;
+  font-size: 16px;
+  font-weight: 400;
+}
+.modal.modal-angular .modal-body h4.margin-top {
+  margin-top: 15px;
+}
+.modal.modal-angular .modal-body h4 i {
+  color: #c5a47e;
+}
+.modal.modal-angular .modal-body a.modal-button {
+  display: inline-block;
+  padding: 20px 15px;
+  background-color: #fdfdfd;
+  font-size: 14px;
+  text-align: center;
+  color: inherit;
+  border-radius: 6px;
+  transition: box-shadow 150ms ease-in;
+  width: 130px;
+  max-width: 130px;
+  margin-bottom: 10px;
+  font-weight: 100;
+  border: 1px solid rgba(220, 220, 220, 0.4);
+}
+.modal.modal-angular .modal-body a.modal-button:nth-child(2n+1) {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.modal.modal-angular .modal-body a.modal-button.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+.modal.modal-angular .modal-body a.modal-button:hover, .modal.modal-angular .modal-body a.modal-button:focus {
+  box-shadow: 0px 3px 25px 0px rgba(0, 0, 0, 0.2);
+}
+.modal.modal-angular .modal-body a.modal-button .product-type {
+  font-size: 12px;
+  font-weight: 600;
+}
+.modal.modal-angular .modal-body a.modal-button .price {
+  font-size: 11px;
+  font-weight: 100;
+}
+.modal.modal-angular .modal-body a.modal-button .price span {
+  display: block;
+  font-size: 27px;
+  position: relative;
+  font-weight: 500;
+  margin-top: 3px;
+}
+.modal.modal-angular .modal-body a.modal-button .price span i {
+  font-size: 10px;
+  position: absolute;
+  width: 8px;
+  top: 4px;
+}
+.modal.modal-angular .modal-body a.modal-button .wrapper-card {
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .modal.modal-angular .modal-dialog {
+    width: 570px;
+  }
+}
