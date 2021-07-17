@@ -2,6 +2,8 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 import { ROUTES } from '../sidebar/sidebar.component';
 import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 import { Router } from '@angular/router';
+import { RentingService } from 'app/service/renting.service';
+import { AuthService } from 'app/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -15,9 +17,10 @@ export class NavbarComponent implements OnInit {
     private toggleButton: any;
     private sidebarVisible: boolean;
 
-    constructor(location: Location,  private element: ElementRef, private router: Router) {
+    constructor(location: Location,  private element: ElementRef, private router: Router,private myrenting:RentingService,private myuserservice:AuthService) {
       this.location = location;
           this.sidebarVisible = false;
+          this.notifcationRenting()
     }
 
     ngOnInit(){
@@ -121,5 +124,14 @@ export class NavbarComponent implements OnInit {
           }
       }
       return 'Dashboard';
+    }
+    shipping:any;
+    async notifcationRenting(){
+        let data = await this.myrenting.GetAllRental();
+        await data.subscribe(res=>{
+            this.shipping = res;
+            this.shipping.map(item=>{
+            })
+        },err=>{console.log(err)})
     }
 }

@@ -22,9 +22,7 @@ export class LoginComponent implements OnInit {
   loginForm=new FormGroup({ 
     Email:new FormControl(null,[Validators.required,Validators.email]),
     Password:new FormControl(null,[Validators.required]),
-  
    })
-
    // method for log in
   submitLoginForm(loginForm:FormGroup){
     this._AuthService.login(loginForm.value).subscribe((response)=>{

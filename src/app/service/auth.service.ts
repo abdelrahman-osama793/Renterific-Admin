@@ -15,6 +15,9 @@ export class AuthService {
       this.saveCurrentUser();
     }
   }
+  getUserById(id:any) {
+    return this._HttpClient.get(`http://localhost:3333/api/user/get-user/${id}`);
+  }
 
   saveCurrentUser() {
     let token: any = localStorage.getItem("userToken");
@@ -47,4 +50,5 @@ export class AuthService {
       `http://localhost:3333/api/user/delete-user/${id}`
     );
   }
+  
 }
