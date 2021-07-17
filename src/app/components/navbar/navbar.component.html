@@ -28,7 +28,7 @@
             aria-expanded="false"
           >
             <i class="material-icons">notifications</i>
-            <span class="notification">5</span>
+            <span class="notification">{{ ShippingCount }}</span>
             <p>
               <span class="d-lg-none d-md-block">Some Actions</span>
             </p>
@@ -37,28 +37,10 @@
             class="dropdown-menu dropdown-menu-right"
             aria-labelledby="navbarDropdownMenuLink"
           >
-            <a class="dropdown-item" href="javascript:void(0)"
-              >Mike John responded to your email</a
-            >
-            <a class="dropdown-item" href="javascript:void(0)"
-              >You have 5 new tasks</a
-            >
-            <a class="dropdown-item" href="javascript:void(0)"
-              >You're now friend with Andrew</a
-            >
-            <a class="dropdown-item" href="javascript:void(0)"
-              >Another Notification</a
-            >
-            <a class="dropdown-item" href="javascript:void(0)">Another One</a>
+            <a class="dropdown-item" href="javascript:void(0)" *ngFor="let row of shipping">
+             The Seller That ID is : <span class="text-danger"> {{ row.seller }} </span>&nbsp; Is Sell Product ID : <span class="text-primary">{{ row.product }}</span>&nbsp; To Buyer That ID : <span class="text-success">{{ row.buyer }}</span>
+            </a>
           </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="javascript:void(0)">
-            <i class="material-icons">person</i>
-            <p>
-              <span class="d-lg-none d-md-block">Account</span>
-            </p>
-          </a>
         </li>
       </ul>
     </div>

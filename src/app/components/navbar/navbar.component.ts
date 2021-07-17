@@ -3,8 +3,7 @@ import { ROUTES } from '../sidebar/sidebar.component';
 import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 import { Router } from '@angular/router';
 import { RentingService } from 'app/service/renting.service';
-import { AuthService } from 'app/auth.service';
-
+import { AuthService } from 'app/service/auth.service';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -126,12 +125,12 @@ export class NavbarComponent implements OnInit {
       return 'Dashboard';
     }
     shipping:any;
+    ShippingCount:any;
     async notifcationRenting(){
         let data = await this.myrenting.GetAllRental();
         await data.subscribe(res=>{
+        this.ShippingCount = Object.keys(res).length;
             this.shipping = res;
-            this.shipping.map(item=>{
-            })
         },err=>{console.log(err)})
     }
 }
